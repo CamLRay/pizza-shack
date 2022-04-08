@@ -11,6 +11,7 @@ PizzaShack.prototype.addMenu = function(newMenu) {
   this.menu = newMenu;
 }
 
+
 function Menu(toppings, sizes) {
   this.toppings = toppings;
   this.sizes = sizes;

@@ -43,3 +43,9 @@ Describe PizzaShack.prototype.addMenu();
 Test: "It should add a menu to the pseudo database"
 Code: pizzaShack.addMenu(menu);
 Expected Output: pizzaShack {menus: {menu}, orders: {}}
+
+Describe PizzaShack.prototype.addPizza();
+
+Test: "It should add a pizza to the orders object"
+Code: pizzaShack.addPizza(newPizza);
+Expected Output: pizzaShack {menus: {menu} orders: {pizza}}
