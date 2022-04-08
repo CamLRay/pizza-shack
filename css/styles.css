@@ -1,0 +1,11 @@
+body {
+  text-align: center;
+}
+#pizza-form {
+  margin: auto;
+  width: 500px;
+}
+
+#pizza-form input, label{
+  padding: .5em;
+}
