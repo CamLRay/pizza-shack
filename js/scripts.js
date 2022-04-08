@@ -2,7 +2,7 @@
 function PizzaShack() {
   this.menu = {}
   this.orders = {}
-  this.uniqueID = 0;
+  this.uniqueId = 0;
 }
 
 let pizzaShack = new PizzaShack();
@@ -13,8 +13,15 @@ PizzaShack.prototype.addMenu = function(newMenu) {
 }
 
 PizzaShack.prototype.addPizza = function(newPizza) {
-  this.orders[newPizza.size] = newPizza;
+  newPizza.id = this.assignId();
+  this.orders[newPizza.id] = newPizza;
 }
+
+PizzaShack.prototype.assignId = function() {
+  this.uniqueId ++
+  return this.uniqueId;
+}
+
 
 function Menu(toppings, sizes) {
   this.toppings = toppings;
@@ -26,6 +33,12 @@ function Pizza(toppings, size) {
   this.size = size;
 }
 
+// let pizza1 = new Pizza(["peps"], "10 inch");
+// let pizza2 = new Pizza(["pines"], "10 inch");
+// let pizza3 = new Pizza(["sausy"], "10 inch");
+// pizzaShack.addPizza(pizza1);
+// pizzaShack.addPizza(pizza2);
+// pizzaShack.addPizza(pizza3);
 
 Pizza.prototype.priceCalc = function() {
   let price = 11 + (this.toppings.length * .25);

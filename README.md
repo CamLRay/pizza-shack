@@ -59,3 +59,9 @@ Describe PizzaShack.prototype.assignId();
 Test: "It should add a unique ID to each pizza"
 Code: pizzaShack.assignId();
 Expected Output: pizzaShack {... uniqueID: 0}
+
+Describe PizzaShack.prototype.orderTotal();
+
+Test: "It should return a sum of all pizza totals"
+Code: pizzaShack {... orders: pizza{}, pizza{}} pizzaShack.orderTotal();
+Expected Output: 22
