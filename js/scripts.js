@@ -22,6 +22,15 @@ PizzaShack.prototype.assignId = function() {
   return this.uniqueId;
 }
 
+PizzaShack.prototype.orderTotal = function() {
+  price = 0;
+  let pizzas = this.orders;
+  Object.keys(this.orders).forEach(function(key){
+    price += parseFloat(pizzas[key].priceCalc());
+    
+  });
+  return price.toFixed(2);
+}
 
 function Menu(toppings, sizes) {
   this.toppings = toppings;
