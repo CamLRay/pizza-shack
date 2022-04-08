@@ -17,3 +17,18 @@ Pizza.prototype.priceCalc = function(pizza) {
 
 let pizza = new Pizza(["pepperoni"], "12 inch");
 console.log(pizza.priceCalc());
+// ui logic
+
+$(document).ready(function() {
+  $("#pizza-form").submit(function(event){
+    event.preventDefault();
+    let size = $("input:radio[name=size]:checked").val();
+    let toppings = $("input:checkbox[name=toppings]:checked");
+    // .map(function(event){
+    //   return $(this).val();
+    // });
+    console.log(toppings);
+    console.log(size);
+  });
+
+});
