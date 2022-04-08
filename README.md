@@ -53,3 +53,9 @@ Describe PizzaShack.prototype.addPizza();
 Test: "It should add a pizza to the orders object"
 Code: pizzaShack.addPizza(newPizza);
 Expected Output: pizzaShack {menus: {menu} orders: {pizza}}
+
+Describe PizzaShack.prototype.assignId();
+
+Test: "It should add a unique ID to each pizza"
+Code: pizzaShack.assignId();
+Expected Output: pizzaShack {... uniqueID: 0}
