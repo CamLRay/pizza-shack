@@ -15,8 +15,7 @@ Pizza.prototype.priceCalc = function(pizza) {
   return price;
 }
 
-let pizza = new Pizza(["pepperoni"], "12 inch");
-console.log(pizza.priceCalc());
+
 // ui logic
 
 $(document).ready(function() {
@@ -26,8 +25,8 @@ $(document).ready(function() {
     let toppings = $("input:checkbox[name=toppings]:checked").map(function(event){
       return $(this).val();
     }).get();
-    console.log(toppings);
-    console.log(size);
+    let pizza = new Pizza(toppings, size);
+    console.log(pizza.priceCalc());
   });
 
 });

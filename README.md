@@ -19,4 +19,10 @@ Expected Output: "13"
 
 Test: "It should calculate price based on size and the ammount of toppings at 25 cents per topping."
 Code:  pizza {toppings: ["pepperoni", "olives"], size: "12 inch"} pizza.priceCalc();
-expected output: "13.25"
+Expected Output: "13.25"
+
+Describe Menu();
+
+Test: "It should construct a menu object containing an array of available toppings and sizes"
+Code: let newMenu = new Menu(["pepperoni", "olives"], ["10 inch", "12 inch", "14 inch"]);
+Expected Ouput: menu {toppings: ["pepperoni", "olives"], sizes: ["pepperoni", "olives"]}
