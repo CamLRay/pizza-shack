@@ -19,7 +19,7 @@ Pizza.prototype.priceCalc = function(pizza) {
   } else if (this.size === "14 inch") {
     price += 5;
   }
-  return price;
+  return price.toFixed(2);
 }
 
 
