@@ -19,7 +19,11 @@ Expected Output: "13"
 
 Test: "It should calculate price based on size and the ammount of toppings at 25 cents per topping."
 Code:  pizza {toppings: ["pepperoni", "olives"], size: "12 inch"} pizza.priceCalc();
-Expected Output: "13.25"
+Expected Output: "13.5"
+
+Test: "It should return a value with two floating points"
+Code:  pizza {toppings: ["pepperoni", "olives"], size: "12 inch"} pizza.priceCalc();
+Expected Output: "13.50"
 
 Describe Menu();
 
