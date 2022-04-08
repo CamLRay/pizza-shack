@@ -11,6 +11,9 @@ PizzaShack.prototype.addMenu = function(newMenu) {
   this.menu = newMenu;
 }
 
+PizzaShack.prototype.addPizza = function(newPizza) {
+  this.orders[newPizza.size] = newPizza;
+}
 
 function Menu(toppings, sizes) {
   this.toppings = toppings;
@@ -21,6 +24,7 @@ function Pizza(toppings, size) {
   this.toppings = toppings;
   this.size = size;
 }
+
 
 Pizza.prototype.priceCalc = function() {
   let price = 11 + (this.toppings.length * .25);

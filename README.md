@@ -38,6 +38,10 @@ Test: "It should construct a pseudo database for pizza shack containing the menu
 Code: let pizzaShack = new PizzaShack();
 Expected Output: PizzaShack { menus: {}, orders: {}}
 
+Test: "It should have an ID property"
+Code: let pizzaShack = new PizzaShack();
+Expected Output: PizzaShack { menus: {}, orders: {} , uniqueID: 0}
+
 Describe PizzaShack.prototype.addMenu();
 
 Test: "It should add a menu to the pseudo database"
