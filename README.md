@@ -9,4 +9,10 @@ Describe Pizza();
 
 Test: "It should make a Pizza object containing two properties, toppigs and size"
 Code: let newPizza = new Pizza(["pepperoni", "olives"], "12 inch");
-Expected Output: pizza {toppings: ["pepperoni", "olives"], size: "12 inch"
+Expected Output: pizza {toppings: ["pepperoni", "olives"], size: "12 inch"}
+
+Describe Pizza.prototype.priceCalc();
+
+Test: 'It should return a price for a pizza based on size ie "10 inch" is $11, "12 inch" $13, "14 inch" $16 
+Code:  pizza {toppings: ["pepperoni", "olives"], size: "12 inch"} pizza.priceCalc();
+Expected Output: "13"
