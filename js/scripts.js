@@ -3,14 +3,12 @@ function Menu(toppings, sizes) {
   this.sizes = sizes;
 }
 
-let menu = new Menu(["Pepperoni", "Bacon", "Sausage", "Canadian Bacon", "Mushrooms", "Black Olives", "Green Pepper", "Garlic", "Onions", "Pineapple", "Extra Cheese"], ["10 inch", "12 inch", "14 inch"]);
-
 function Pizza(toppings, size) {
   this.toppings = toppings;
   this.size = size;
 }
 
-Pizza.prototype.priceCalc = function(pizza) {
+Pizza.prototype.priceCalc = function() {
   let price = 11 + (this.toppings.length * .25);
   if(this.size === "10 inch") {
     price += 0;
@@ -24,6 +22,19 @@ Pizza.prototype.priceCalc = function(pizza) {
 
 
 // ui logic
+
+Menu.prototype.menuBoardToppings = function(form) {
+  this.toppings.reverse().forEach(function(topping){
+    form.prepend('<input type="checkbox" name="toppings" value="'+topping+'">'+'<label>'+topping+'</label>');
+  });
+}
+
+Menu.prototype.menuBoardSizes = function(form) {
+  this.sizes.reverse().forEach(function(size){
+    form.prepend('<input type="radio" name="size" value="'+size+'">'+'<label>'+size+'</label>');
+  });
+}
+
 function gatherData() {
   let size = $("input:radio[name=size]:checked").val();
     let toppings = $("input:checkbox[name=toppings]:checked").map(function(){
@@ -33,26 +44,23 @@ function gatherData() {
   return pizza;
 }
 
-
 $(document).ready(function() {
-  menu.sizes.reverse().forEach(function(size){
-    $("#pizza-form").prepend('<input type="radio" name="size" value="'+size+'">'+'<label>'+size+'</label>');
-  });
-  $("#pizza-form").prepend("<h4>Size:</h4>");
-  menu.toppings.reverse().forEach(function(topping){
-    $("#pizza-form").prepend('<input type="checkbox" name="toppings" value="'+topping+'">'+'<label>'+topping+'</label>');
-  });
-  $("#pizza-form").prepend("<h4>Toppings ($0.25 each):</h4>");
+  let pizzaForm = $("#pizza-form");
+  let menu = new Menu(["Pepperoni", "Bacon", "Sausage", "Canadian Bacon", "Mushrooms", "Black Olives", "Green Pepper", "Garlic", "Onions", "Pineapple", "Extra Cheese"], ["10 inch", "12 inch", "14 inch"]);
+  menu.menuBoardSizes(pizzaForm);
+  pizzaForm.prepend("<h4>Size:</h4>");
+  menu.menuBoardToppings(pizzaForm);
+  pizzaForm.prepend("<h4>Toppings ($0.25 each):</h4>");
 
-  $("#pizza-form").change(function(){
+  pizzaForm.change(function(){
     let pizza = gatherData();
     $("#current-price").text("$"+pizza.priceCalc())
   });
 
-  $("#pizza-form").submit(function(event){
+  pizzaForm.submit(function(event){
     event.preventDefault();
     let pizza = gatherData();
-    $(".receipt").append("<h4>Price: $" + pizza.priceCalc()+"</h4>")
+    $(".receipt").html("<h4>Price: $" + pizza.priceCalc()+"</h4>")
   });
 
 });
