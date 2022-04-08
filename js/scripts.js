@@ -1,3 +1,8 @@
+function Menu(toppings, sizes) {
+  this.toppings = toppings;
+  this.sizes = sizes;
+}
+
 function Pizza(toppings, size) {
   this.toppings = toppings;
   this.size = size;
