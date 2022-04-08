@@ -37,3 +37,9 @@ Describe PizzaShack();
 Test: "It should construct a pseudo database for pizza shack containing the menu and orders"
 Code: let pizzaShack = new PizzaShack();
 Expected Output: PizzaShack { menus: {}, orders: {}}
+
+Describe PizzaShack.prototype.addMenu();
+
+Test: "It should add a menu to the pseudo database"
+Code: pizzaShack.addMenu(menu);
+Expected Output: pizzaShack {menus: {menu}, orders: {}}
