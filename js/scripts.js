@@ -23,10 +23,9 @@ $(document).ready(function() {
   $("#pizza-form").submit(function(event){
     event.preventDefault();
     let size = $("input:radio[name=size]:checked").val();
-    let toppings = $("input:checkbox[name=toppings]:checked");
-    // .map(function(event){
-    //   return $(this).val();
-    // });
+    let toppings = $("input:checkbox[name=toppings]:checked").map(function(event){
+      return $(this).val();
+    }).get();
     console.log(toppings);
     console.log(size);
   });
