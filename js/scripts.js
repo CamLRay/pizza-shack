@@ -35,6 +35,14 @@ Menu.prototype.menuBoardSizes = function(form) {
   });
 }
 
+Pizza.prototype.receipt = function() {
+  let order = "<h4>"+this.size+" Pizza </h4><ul>";
+  this.toppings.forEach(function(topping){
+    order += "<li>" + topping + " +0.25</li>";
+  });
+  return order += "</ul><h5>Sub total: " + this.priceCalc() + "</h5>";
+}
+
 function gatherData() {
   let size = $("input:radio[name=size]:checked").val();
     let toppings = $("input:checkbox[name=toppings]:checked").map(function(){
@@ -54,13 +62,16 @@ $(document).ready(function() {
 
   pizzaForm.change(function(){
     let pizza = gatherData();
-    $("#current-price").text("$"+pizza.priceCalc())
+    let price = pizza.priceCalc();
+    $("#current-price").text("$"+price)
   });
 
   pizzaForm.submit(function(event){
     event.preventDefault();
     let pizza = gatherData();
-    $(".receipt").html("<h4>Price: $" + pizza.priceCalc()+"</h4>")
+    $(".receipt").append(pizza.receipt());
+    $(".receipt").append("Order total");
+    // $(".receipt").html("<h4>Price: $" + price+"</h4>")
   });
 
 });

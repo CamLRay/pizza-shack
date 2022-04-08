@@ -9,3 +9,17 @@ body {
 #pizza-form input, label{
   padding: .5em;
 }
+
+.receipt {
+  display: grid;
+  width:20%;
+  align-items: center;
+  justify-content: center;
+  text-align: left;
+  margin: auto;
+}
+
+ul {
+  list-style: none;
+  margin-left: -1.8em;
+}

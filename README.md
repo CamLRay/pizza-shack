@@ -29,4 +29,11 @@ Describe Menu();
 
 Test: "It should construct a menu object containing an array of available toppings and sizes"
 Code: let newMenu = new Menu(["pepperoni", "olives"], ["10 inch", "12 inch", "14 inch"]);
-Expected Ouput: menu {toppings: ["pepperoni", "olives"], sizes: ["pepperoni", "olives"]}
+Expected Ouput: Menu {toppings: ["pepperoni", "olives"], sizes: ["pepperoni", "olives"]}
+
+
+Describe PizzaShack();
+
+Test: "It should construct a pseudo database for pizza shack containing the menu and orders"
+Code: let pizzaShack = new PizzaShack({}, {});
+Expected Output: PizzaShack { menus: {}, orders: {}}
