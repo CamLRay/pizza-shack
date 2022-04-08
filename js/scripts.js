@@ -24,7 +24,14 @@ Pizza.prototype.priceCalc = function(pizza) {
 
 
 // ui logic
-
+function gatherData() {
+  let size = $("input:radio[name=size]:checked").val();
+    let toppings = $("input:checkbox[name=toppings]:checked").map(function(){
+      return $(this).val();
+    }).get();
+  let pizza = new Pizza(toppings, size);
+  return pizza;
+}
 
 
 $(document).ready(function() {
@@ -38,23 +45,13 @@ $(document).ready(function() {
   $("#pizza-form").prepend("<h4>Toppings ($0.25 each):</h4>");
 
   $("#pizza-form").change(function(){
-    let size = $("input:radio[name=size]:checked").val();
-    let toppings = $("input:checkbox[name=toppings]:checked").map(function(){
-      return $(this).val();
-    }).get();
-    let pizza = new Pizza(toppings, size);
+    let pizza = gatherData();
     $("#current-price").text("$"+pizza.priceCalc())
   });
 
   $("#pizza-form").submit(function(event){
     event.preventDefault();
-    let size = $("input:radio[name=size]:checked").val();
-    let toppings = $("input:checkbox[name=toppings]:checked").map(function(){
-      return $(this).val();
-    }).get();
-    let pizza = new Pizza(toppings, size);
-    console.log(pizza.priceCalc());
-
+    let pizza = gatherData();
     $(".receipt").append("<h4>Price: $" + pizza.priceCalc()+"</h4>")
   });
 
