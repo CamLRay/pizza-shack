@@ -2,6 +2,7 @@
 function PizzaShack() {
   this.menu = {}
   this.orders = {}
+  this.uniqueID = 0;
 }
 
 let pizzaShack = new PizzaShack();
