@@ -1,6 +1,14 @@
+//Pseudo database
 function PizzaShack() {
-  this.menus = {}
+  this.menu = {}
   this.orders = {}
+}
+
+let pizzaShack = new PizzaShack();
+// ^^^^^ database ^^^^^
+
+PizzaShack.prototype.addMenu = function(newMenu) {
+  this.menu = newMenu;
 }
 
 function Menu(toppings, sizes) {
