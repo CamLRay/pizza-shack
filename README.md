@@ -35,5 +35,5 @@ Expected Ouput: Menu {toppings: ["pepperoni", "olives"], sizes: ["pepperoni", "o
 Describe PizzaShack();
 
 Test: "It should construct a pseudo database for pizza shack containing the menu and orders"
-Code: let pizzaShack = new PizzaShack({}, {});
+Code: let pizzaShack = new PizzaShack();
 Expected Output: PizzaShack { menus: {}, orders: {}}

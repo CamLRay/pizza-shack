@@ -1,3 +1,8 @@
+function PizzaShack() {
+  this.menus = {}
+  this.orders = {}
+}
+
 function Menu(toppings, sizes) {
   this.toppings = toppings;
   this.sizes = sizes;
