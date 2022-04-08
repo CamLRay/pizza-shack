@@ -16,3 +16,7 @@ Describe Pizza.prototype.priceCalc();
 Test: 'It should return a price for a pizza based on size ie "10 inch" is $11, "12 inch" $13, "14 inch" $16 
 Code:  pizza {toppings: ["pepperoni", "olives"], size: "12 inch"} pizza.priceCalc();
 Expected Output: "13"
+
+Test: "It should calculate price based on size and the ammount of toppings at 25 cents per topping."
+Code:  pizza {toppings: ["pepperoni", "olives"], size: "12 inch"} pizza.priceCalc();
+expected output: "13.25"
