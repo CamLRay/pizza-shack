@@ -4,16 +4,16 @@ function Pizza(toppings, size) {
 }
 
 Pizza.prototype.priceCalc = function(pizza) {
-  let price;
+  let price = 11 + (this.toppings.length * .25);
   if(this.size === "10 inch") {
-    price = 11;
+    price += 0;
   } else if (this.size === "12 inch") {
-    price = 13;
+    price += 2;
   } else if (this.size === "14 inch") {
-    price = 16;
+    price += 5;
   }
   return price;
 }
 
-let pizza = new Pizza(["pepperoni"], "15 inch");
+let pizza = new Pizza(["pepperoni"], "12 inch");
 console.log(pizza.priceCalc());
