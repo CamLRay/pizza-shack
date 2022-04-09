@@ -96,8 +96,14 @@ Expected Output: pizzaShack {... uniqueID: 0}
 ### Describe PizzaShack.prototype.orderTotal();
 
 Test: "It should return a sum of all pizza totals"
-Code: pizzaShack {... orders: pizza{}, pizza{}} pizzaShack.orderTotal();
+Code: pizzaShack {... orders: 1:pizza{}, pizza{}} pizzaShack.orderTotal();
 Expected Output: 22
+
+### Describe PizzaShack.prototype.removePizza();
+
+Test: "It should remove a pizza from the orders object"
+code: pizzaShack {... orders: 1: ..., 2:...} pizzaShack.removePizza(1);
+Expected Output: pizzaShack {... orders: 2:...}
 
 ## License
 
