@@ -32,6 +32,14 @@ PizzaShack.prototype.orderTotal = function() {
   return price.toFixed(2);
 }
 
+PizzaShack.prototype.removePizza = function(id) {
+if(this.orders[id] === undefined) {
+  return false;
+  }
+  delete this.orders[id];
+  return true;
+}
+
 function Menu(toppings, sizes) {
   this.toppings = toppings;
   this.sizes = sizes;
