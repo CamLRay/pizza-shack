@@ -89,7 +89,7 @@ Pizza.prototype.receipt = function() {
   this.toppings.forEach(function(topping){
     order += "<li>" + topping + " +0.25</li>";
   });
-  return order += "</ul><h5>Sub total: " + this.priceCalc() + "</h5> <button type='button' id='"+this.id+"'>Remove Pizza</button></div>";
+  return order += "</ul><h5>Sub total: " + this.priceCalc() + "</h5> <button type='button' class='remove' id='"+this.id+"'>Remove Pizza</button></div>";
 }
 
 function gatherData() {
@@ -101,7 +101,16 @@ function gatherData() {
   return pizza;
 }
 
+function removePizzaFromOrder() {
+  $(".receipt").on("click", ".remove", function() {
+    pizzaShack.removePizza(this.id);
+    $(this).parent().remove();
+    $("#order-total").text(pizzaShack.orderTotal());
+  });
+}
+
 $(document).ready(function() {
+  removePizzaFromOrder()
   let pizzaForm = $("#pizza-form");
   let menu = new Menu(["Pepperoni", "Bacon", "Sausage", "Canadian Bacon", "Mushrooms", "Black Olives", "Green Pepper", "Garlic", "Onions", "Pineapple", "Extra Cheese"], ["10 inch", "12 inch", "14 inch"]);
   menu.menuBoardSizes(pizzaForm);
@@ -122,8 +131,6 @@ $(document).ready(function() {
     pizzaShack.addPizza(newPizza);
     $(".receipt").prepend(newPizza.receipt());
     $("#order-total").text(pizzaShack.orderTotal());
-    // $(".receipt").html("<h4>Price: $" + price+"</h4>")
   });
-
 
 });

@@ -28,7 +28,6 @@ Pizza Shack is a simple website generated from objects in a pseudo database. The
   ```
 
 ## Known Bugs
-* Cannot delete pizza from order
 * Cannot finalize order
 
 ## Project Goals
