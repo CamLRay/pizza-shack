@@ -3,21 +3,19 @@ body {
 }
 #pizza-form {
   margin: auto;
-  width: 500px;
 }
 
 #pizza-form input, label{
   padding: .5em;
 }
 
-.receipt {
+/* .receipt {
   display: grid;
-  width:20%;
   align-items: center;
   justify-content: center;
   text-align: left;
   margin: auto;
-}
+} */
 
 ul {
   list-style: none;

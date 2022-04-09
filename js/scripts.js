@@ -77,16 +77,16 @@ Menu.prototype.menuBoardSizes = function(form) {
 }
 
 Pizza.prototype.receipt = function() {
-  let order = "<h4>"+this.size+" Pizza </h4><ul>";
+  let order = "<div class='col-4'><h4>"+this.size+" Pizza </h4><ul>";
   this.toppings.forEach(function(topping){
     order += "<li>" + topping + " +0.25</li>";
   });
-  return order += "</ul><h5>Sub total: " + this.priceCalc() + "</h5>";
+  return order += "</ul><h5>Sub total: " + this.priceCalc() + "</h5> <button type='button' id='"+this.id+"'>Remove Pizza</button></div>";
 }
 
 function gatherData() {
   let size = $("input:radio[name=size]:checked").val();
-    let toppings = $("input:checkbox[name=toppings]:checked").map(function(){
+  let toppings = $("input:checkbox[name=toppings]:checked").map(function(){
       return $(this).val();
     }).get();
   let pizza = new Pizza(toppings, size);
@@ -97,6 +97,7 @@ $(document).ready(function() {
   let pizzaForm = $("#pizza-form");
   let menu = new Menu(["Pepperoni", "Bacon", "Sausage", "Canadian Bacon", "Mushrooms", "Black Olives", "Green Pepper", "Garlic", "Onions", "Pineapple", "Extra Cheese"], ["10 inch", "12 inch", "14 inch"]);
   menu.menuBoardSizes(pizzaForm);
+  pizzaForm.children("input").attr("checked","checked");
   pizzaForm.prepend("<h4>Size:</h4>");
   menu.menuBoardToppings(pizzaForm);
   pizzaForm.prepend("<h4>Toppings ($0.25 each):</h4>");
@@ -109,10 +110,12 @@ $(document).ready(function() {
 
   pizzaForm.submit(function(event){
     event.preventDefault();
-    let pizza = gatherData();
-    $(".receipt").append(pizza.receipt());
-    $(".receipt").append("Order total");
+    let newPizza = gatherData();
+    pizzaShack.addPizza(newPizza);
+    $(".receipt").prepend(newPizza.receipt());
+    $("#order-total").text(pizzaShack.orderTotal());
     // $(".receipt").html("<h4>Price: $" + price+"</h4>")
   });
+
 
 });

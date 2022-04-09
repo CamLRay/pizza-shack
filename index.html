@@ -8,11 +8,24 @@
   <title>Pizza Shack</title>
 </head>
 <body>
-  <h1>Choose your pizza toppings and size.</h1>
-    <form id="pizza-form">
-      <button type="submit">Order Pizza</button>
-    </form>
-    <h4>Current Selection Price: <span id="current-price"></span></h4>
-    <div class="receipt"></div>
+  <div class="container">
+    <div class="row">
+      <div class="col-4">
+        <h2>Customize Your Pizza</h2>
+        <form id="pizza-form">
+          <button type="submit">Add to Order</button>
+        </form>
+        <h4>Current Selection Price: <span id="current-price"></span></h4>
+      </div>
+      <div class="col-8">
+        <h2>Current Order</h2>
+        <div class="receipt row">
+
+        </div>
+        <h3>Order Total: <span id="order-total"></span></h3>
+      </div>
+      <button type="button">Complete Order</button>
+    </div>
+  </div>
 </body>
 </html>
