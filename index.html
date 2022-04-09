@@ -9,7 +9,7 @@
 </head>
 <body>
   <div class="container">
-    <div class="row">
+    <div class="row order">
       <div class="col-4">
         <h2>Customize Your Pizza</h2>
         <form id="pizza-form">
@@ -24,8 +24,9 @@
         </div>
         <h3>Order Total: <span id="order-total"></span></h3>
       </div>
-      <button type="button">Complete Order</button>
+      <button type="button" id="order-complete">Complete Order</button>
     </div>
+    <div class="order hidden" id="order-final"></div>
   </div>
 </body>
 </html>

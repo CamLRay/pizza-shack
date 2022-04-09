@@ -21,3 +21,7 @@ ul {
   list-style: none;
   margin-left: -1.8em;
 }
+
+.hidden {
+  display: none;
+}

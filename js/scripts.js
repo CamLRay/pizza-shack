@@ -92,6 +92,14 @@ Pizza.prototype.receipt = function() {
   return order += "</ul><h5>Sub total: " + this.priceCalc() + "</h5> <button type='button' class='remove' id='"+this.id+"'>Remove Pizza</button></div>";
 }
 
+Pizza.prototype.receiptFinal = function() {
+  let order = "<div class='col-4'><h4>"+this.size+" Pizza </h4><ul>";
+  this.toppings.forEach(function(topping){
+    order += "<li>" + topping + " +0.25</li>";
+  });
+  return order += "</ul><h5>Sub total: " + this.priceCalc() + "</h5></div>";
+}
+
 function gatherData() {
   let size = $("input:radio[name=size]:checked").val();
   let toppings = $("input:checkbox[name=toppings]:checked").map(function(){
@@ -133,4 +141,10 @@ $(document).ready(function() {
     $("#order-total").text(pizzaShack.orderTotal());
   });
 
+  $("#order-complete").click(function(){
+    let newPizza = gatherData();
+    pizzaShack.addPizza(newPizza);
+    $(".order").toggleClass("hidden");
+    $("#order-final").html(newPizza.receiptFinal());
+  });
 });
