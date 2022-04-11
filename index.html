@@ -9,11 +9,12 @@
 </head>
 <body>
   <div class="container">
+    <h1>Pizza Shack</h1>
     <div class="row order">
       <div class="col-4">
         <h2>Customize Your Pizza</h2>
         <form id="pizza-form">
-          <button type="submit">Add to Order</button>
+          <button type="submit" class="btn btn-primary">Add to Order</button>
         </form>
         <h4>Current Selection Price: <span id="current-price"></span></h4>
       </div>
@@ -24,7 +25,7 @@
         </div>
         <h3>Order Total: <span id="order-total"></span></h3>
       </div>
-      <button type="button" id="order-complete">Complete Order</button>
+      <button type="button" id="order-complete" class="btn btn-primary">Complete Order</button>
     </div>
     <div class="order hidden" id="order-final"></div>
   </div>

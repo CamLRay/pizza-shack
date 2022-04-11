@@ -89,15 +89,15 @@ Pizza.prototype.receipt = function() {
   this.toppings.forEach(function(topping){
     order += "<li>" + topping + " +0.25</li>";
   });
-  return order += "</ul><h5>Sub total: " + this.priceCalc() + "</h5> <button type='button' class='remove' id='"+this.id+"'>Remove Pizza</button></div>";
+  return order += "</ul><h5>Sub total: " + this.priceCalc() + "</h5> <button type='button' class='remove btn btn-primary' id='"+this.id+"'>Remove Pizza</button></div>";
 }
 
-Pizza.prototype.receiptFinal = function() {
-  let order = "<div class='col-4'><h4>"+this.size+" Pizza </h4><ul>";
-  this.toppings.forEach(function(topping){
-    order += "<li>" + topping + " +0.25</li>";
+PizzaShack.prototype.receiptFinal = function() {
+  let order = "<div>";;
+  Object.keys(pizzaShack.orders).forEach(function(key) {
+    order += "<h4>"+pizzaShack.orders[key].size+" Pizza</h4><h5> Price: "+pizzaShack.orders[key].priceCalc()+"</h5>";
   });
-  return order += "</ul><h5>Sub total: " + this.priceCalc() + "</h5></div>";
+  return order;
 }
 
 function gatherData() {
@@ -142,9 +142,7 @@ $(document).ready(function() {
   });
 
   $("#order-complete").click(function(){
-    let newPizza = gatherData();
-    pizzaShack.addPizza(newPizza);
     $(".order").toggleClass("hidden");
-    $("#order-final").html(newPizza.receiptFinal());
+    $("#order-final").html("<h2>Thank you for your purchase.</h2><h3>Your Order</h3>"+pizzaShack.receiptFinal() + "<h4>Your Total: "+pizzaShack.orderTotal()+"</h4>");
   });
 });
